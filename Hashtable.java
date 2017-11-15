@@ -1,11 +1,12 @@
 
 public class Hashtable {
-	Hashnode[]arr = new Hashnode[10];
+	Hashnode[]arr = new Hashnode[314527];
 	private int elements=0;
 
 	public void put(String key, String val) {
 	Hashnode node = new Hashnode(key, val);
-	int pos = key.hashCode() % arr.length;
+	int pos =  Math.abs(key.hashCode() % arr.length);
+	//System.out.println(pos);
 	Hashnode temp =  arr[pos];
 	
 	while(temp != null) {
@@ -23,7 +24,8 @@ public class Hashtable {
 	}
 
 	public Object get(String key) {
-		int pos = key.hashCode()% arr.length;
+		int pos =Math.abs(key.hashCode()% arr.length);
+		
 		Hashnode temp = arr[pos];
 		while(temp!=null) {
 			if(temp.key.equals(key)) {
@@ -35,7 +37,7 @@ public class Hashtable {
 	}
 
 	public String remove(String key) throws Exception {
-		int pos= key.hashCode() %arr.length;
+		int pos= Math.abs(key.hashCode() %arr.length);
 		Hashnode temp = arr[pos];
 		Hashnode prev = null;
 		if(temp!=null) {
@@ -61,7 +63,7 @@ public class Hashtable {
 	}
 
 	public boolean containsKey(String key) {
-		int pos= key.hashCode() %arr.length;
+		int pos= Math.abs(key.hashCode() %arr.length);
 		Hashnode temp = arr[pos];
 		if(temp!=null) {
 		while(temp!= null) {
