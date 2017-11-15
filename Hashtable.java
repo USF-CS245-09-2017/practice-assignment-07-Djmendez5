@@ -1,7 +1,7 @@
 
 public class Hashtable {
 	Hashnode[]arr = new Hashnode[10];
-	private int elements;
+	private int elements=0;
 
 	public void put(String key, String val) {
 	Hashnode node = new Hashnode(key, val);
